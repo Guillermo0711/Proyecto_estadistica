@@ -5,6 +5,8 @@ import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 
 public class usuario extends javax.swing.JFrame {
 
@@ -13,7 +15,8 @@ private Icon icono;
     public usuario() {
         initComponents();
         this.setLocationRelativeTo(this);
-        this.escala(jLabel2, "src/imagenes/usuario1.png");
+        this.escala(jLabel2, "src/imagenes/susus.png");
+        this.escala(jLabel1,"src/imagenes/morado.png");
         
     }
 
@@ -30,8 +33,8 @@ private Icon icono;
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
+        contraseña = new javax.swing.JPasswordField();
+        usuariotext = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -41,14 +44,11 @@ private Icon icono;
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(null);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario1.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(150, 120, 170, 160);
 
         jLabel5.setFont(new java.awt.Font("Georgia", 3, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel5.setForeground(new java.awt.Color(0, 49, 40));
         jLabel5.setText("Calculadora de Probabilidad");
         jPanel1.add(jLabel5);
         jLabel5.setBounds(50, 20, 380, 60);
@@ -58,18 +58,23 @@ private Icon icono;
         jButton1.setForeground(new java.awt.Color(255, 0, 51));
         jButton1.setText("Ingresar");
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1);
         jButton1.setBounds(160, 500, 160, 50);
 
-        jPasswordField1.setFont(new java.awt.Font("Georgia", 3, 18)); // NOI18N
-        jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPasswordField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jPanel1.add(jPasswordField1);
-        jPasswordField1.setBounds(240, 390, 170, 30);
+        contraseña.setFont(new java.awt.Font("Georgia", 3, 18)); // NOI18N
+        contraseña.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        contraseña.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jPanel1.add(contraseña);
+        contraseña.setBounds(240, 390, 170, 30);
 
-        jTextField1.setFont(new java.awt.Font("Georgia", 3, 18)); // NOI18N
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(240, 320, 170, 30);
+        usuariotext.setFont(new java.awt.Font("Georgia", 3, 18)); // NOI18N
+        jPanel1.add(usuariotext);
+        usuariotext.setBounds(240, 320, 170, 40);
 
         jLabel4.setFont(new java.awt.Font("Georgia", 3, 24)); // NOI18N
         jLabel4.setText("Contraseña");
@@ -80,8 +85,6 @@ private Icon icono;
         jLabel3.setText("Usuario");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(50, 320, 120, 40);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.jpg"))); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 480, 600);
 
@@ -89,6 +92,24 @@ private Icon icono;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    String usu = usuariotext.getText();
+    String contra = contraseña.getText();
+    
+    //JOptionPane.showMessageDialog(null,contr);
+    
+        if(usu.equals("umg")&& contra.equals("Solola@umg")){
+        
+          ventana1 ven = new ventana1();
+          ven.setVisible(true);   
+            dispose();
+        }else{
+            usuariotext.setText("");
+            contraseña.setText("");
+            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
+        }  
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,6 +160,7 @@ private Icon icono;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField contraseña;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -146,7 +168,6 @@ private Icon icono;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField usuariotext;
     // End of variables declaration//GEN-END:variables
 }
