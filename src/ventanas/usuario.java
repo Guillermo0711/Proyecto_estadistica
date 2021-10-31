@@ -15,7 +15,7 @@ private Icon icono;
     public usuario() {
         initComponents();
         this.setLocationRelativeTo(this);
-        this.escala(jLabel2, "src/imagenes/susus.png");
+        this.escala(jLabel2, "src/imagenes/usu.png");
         this.escala(jLabel1,"src/imagenes/morado.png");
         
     }
@@ -47,11 +47,10 @@ private Icon icono;
         jPanel1.add(jLabel2);
         jLabel2.setBounds(150, 120, 170, 160);
 
-        jLabel5.setFont(new java.awt.Font("Georgia", 3, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 49, 40));
+        jLabel5.setFont(new java.awt.Font("Georgia", 3, 28)); // NOI18N
         jLabel5.setText("Calculadora de Probabilidad");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(50, 20, 380, 60);
+        jLabel5.setBounds(20, 20, 430, 90);
 
         jButton1.setBackground(new java.awt.Color(0, 204, 0));
         jButton1.setFont(new java.awt.Font("Georgia", 3, 24)); // NOI18N
@@ -77,11 +76,13 @@ private Icon icono;
         usuariotext.setBounds(240, 320, 170, 40);
 
         jLabel4.setFont(new java.awt.Font("Georgia", 3, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 102, 102));
         jLabel4.setText("Contraseña");
         jPanel1.add(jLabel4);
         jLabel4.setBounds(50, 380, 170, 50);
 
         jLabel3.setFont(new java.awt.Font("Georgia", 3, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 102, 102));
         jLabel3.setText("Usuario");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(50, 320, 120, 40);

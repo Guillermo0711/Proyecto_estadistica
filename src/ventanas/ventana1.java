@@ -397,7 +397,7 @@ public class ventana1 extends javax.swing.JFrame {
         seis.setForeground(new java.awt.Color(0, 153, 153));
         seis.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel1.add(seis);
-        seis.setBounds(990, 510, 150, 40);
+        seis.setBounds(990, 520, 150, 40);
 
         siete.setFont(new java.awt.Font("Georgia", 2, 36)); // NOI18N
         siete.setForeground(new java.awt.Color(204, 204, 0));
@@ -1085,7 +1085,7 @@ public class ventana1 extends javax.swing.JFrame {
     }
     
     private void op2(){
-         int a1=0, a2=0, a3=0, a4=0, a5=0, a6=0,a7=0,res=0;
+         int a1=0, a2=0, a3=0, a4=0, a5=0, a6=0,a7=0,a8=0,res=0;
          float b1=0,b2=0,b3=0,b4=0,b5=0,b6=0,b7=0,res1=0;
      int indice=0;
      for(int y=0;y<op.length;y++){
@@ -1097,39 +1097,80 @@ public class ventana1 extends javax.swing.JFrame {
      switch(indice){
          
   
-         case 0: resultado.setText(Integer.toString(factorial(Integer.parseInt(unoa.getText()))));
+         case 0:a1=Integer.parseInt(unoa.getText());
+         if(a1>0){
+             res=factorial(a1);
+             resultado.setText(Integer.toString(res));
+         }else{
+             JOptionPane.showMessageDialog(null, "Debe ingresar valores positivos");
+         }
+             
                  break;
          case 1: a1=Integer.parseInt(unoa.getText());
                  a2=Integer.parseInt(dosa.getText());
-                 a3=a1-a2;
+                 if(a1>0 && a2>0){
+                     a3=a1-a2;
                  res=factorial(a1)/factorial(a3);
                  resultado.setText(Integer.toString(res));
+                 }else{
+                     JOptionPane.showMessageDialog(null, "Debe ingresar valores positivos");
+                 }
                  break;
          case 2: a1=Integer.parseInt(unoa.getText());
-                 res = factorial(a1-1);
+         if(a1>0){
+             res = factorial(a1-1);
                  resultado.setText(Integer.toString(res));
+         }else{
+             JOptionPane.showMessageDialog(null, "Debe ingresar valores positivos");
+         }
                  break;
-         case 3: a1=factorial(Integer.parseInt(unoa.getText()));
+         case 3: a1 = Integer.parseInt(unoa.getText());
+                a2 = Integer.parseInt(dosa.getText());
+                a3 = Integer.parseInt(tresa.getText());
+                a4 = Integer.parseInt(cuatroa.getText());
+                a5 = Integer.parseInt(cincoa.getText());
+                a6 = Integer.parseInt(seisa.getText());
+                a7 = Integer.parseInt(sietea.getText());
+                a8 = (((((a2+a3)+a4)+a5)+a6)+a7);
+                if(a8==a1){
+                    a1=factorial(Integer.parseInt(unoa.getText()));
                 a2=factorial(Integer.parseInt(dosa.getText()));
                 a3=factorial(Integer.parseInt(tresa.getText()));
                 a4=factorial(Integer.parseInt(cuatroa.getText()));
                 a5=factorial(Integer.parseInt(cincoa.getText()));
                 a6=factorial(Integer.parseInt(seisa.getText()));
                 a7=factorial(Integer.parseInt(sietea.getText()));
-                
                 res= a1/(a2*a3*a4*a5*a6*a7);
                 resultado.setText(Integer.toString(res));
+                }else{
+                    JOptionPane.showMessageDialog(null,"No se puede realizr el calculo"
+                            + "\n La sumatoria de todas las sub-n debe ser igual a n");
+                }
+
                 break;
-         case 4: a1=factorial(Integer.parseInt(unoa.getText()));
+         case 4:a1 = Integer.parseInt(unoa.getText());
+                a2 = Integer.parseInt(dosa.getText());
+                a3 = Integer.parseInt(tresa.getText());
+                a4 = Integer.parseInt(cuatroa.getText());
+                a5 = Integer.parseInt(cincoa.getText());
+                a6 = Integer.parseInt(seisa.getText());
+                a7 = Integer.parseInt(sietea.getText());
+                a8 = (((((a2+a3)+a4)+a5)+a6)+a7);
+                if(a8==a1){
+                    a1=factorial(Integer.parseInt(unoa.getText()));
                 a2=factorial(Integer.parseInt(dosa.getText()));
                 a3=factorial(Integer.parseInt(tresa.getText()));
                 a4=factorial(Integer.parseInt(cuatroa.getText()));
                 a5=factorial(Integer.parseInt(cincoa.getText()));
                 a6=factorial(Integer.parseInt(seisa.getText()));
                 a7=factorial(Integer.parseInt(sietea.getText()));
-                
                 res= a1/(a2*a3*a4*a5*a6*a7);
                 resultado.setText(Integer.toString(res));
+                }else{
+                    JOptionPane.showMessageDialog(null,"No se puede realizar el cálculo"
+                            + "\n La sumatoria de todas las sub-n debe ser igual a n");
+                }
+
                 break;
          case 5: a1=Integer.parseInt(unoa.getText());
                  a2=Integer.parseInt(dosa.getText());
@@ -1140,8 +1181,16 @@ public class ventana1 extends javax.swing.JFrame {
          case 6: b1 = Float.parseFloat(unoa.getText());
                  b2 = Float.parseFloat(dosa.getText());
                  b3 = Float.parseFloat(tresa.getText());
-                 res1 = ((b1+b2)-b3);
-                 resultado.setText(Float.toString(res1));
+                 if(b1>0 && b2>0 && b3>0){
+                     if(b1<1 && b2<1 && b3<1){
+                        res1 = ((b1+b2)-b3);
+                 resultado.setText(Float.toString(res1)); 
+                     }else{
+                         JOptionPane.showMessageDialog(null,"La probabilidad debe ser menor a 1");
+                     }
+                 }else{
+                     JOptionPane.showMessageDialog(null,"La probabilidad debe ser mayor a 0");
+                 }
                  break;
          case 7: b1 = Float.parseFloat(unoa.getText());
                  b2 = Float.parseFloat(dosa.getText());
@@ -1150,24 +1199,54 @@ public class ventana1 extends javax.swing.JFrame {
                  b5 = Float.parseFloat(cincoa.getText());
                  b6 = Float.parseFloat(seisa.getText());
                  b7 = Float.parseFloat(sietea.getText());
-                 res1 = (((b1+b2+b3)-(b4+b5+b6))+b7);
+                 if(b1>0 && b2>0 && b3>0 && b4>0 && b5>0 && b6>0 && b7>0){
+                     if(b1<1 && b2<1 && b3<1 && b4<1 && b5<1 && b6<1 && b7<1){
+                     res1 = (((b1+b2+b3)-(b4+b5+b6))+b7);
                  resultado.setText(Float.toString(res1));
-                 JOptionPane.showMessageDialog(null,res1);
+                 }else
+                         JOptionPane.showMessageDialog(null,"La probabilidad debe ser menor a 1");
+                 }else{
+                  JOptionPane.showMessageDialog(null,"La probabilidad debe ser mayor a 0");   
+                 }
                  break;
          case 8: b1 = Float.parseFloat(unoa.getText());
-                 res1 = (1-b1);
+                    if(b1>0){
+                        if(b1<1){
+                            res1 = (1-b1);
                  resultado.setText(Float.toString(res1));
-                 break;
+                        }else{
+                            JOptionPane.showMessageDialog(null,"La probabilidad debe ser menor a 1");
+                        }
+                    }else{
+                        JOptionPane.showMessageDialog(null,"La probabilidad debe ser mayor a 0");   
+                    }
+                break;
          case 9: b1 = Float.parseFloat(unoa.getText());
                  b2 = Float.parseFloat(dosa.getText());
-                 res1 = (b1*b2);
-                 resultado.setText(Float.toString(res1));
+                 if(b1>0&&b2>0){
+                     if(b1<1&&b2<2){
+                         res1 = (b1*b2);
+                 resultado.setText(Float.toString(res1));   
+                     }  else{
+                         JOptionPane.showMessageDialog(null,"La probabilidad debe ser menor a 1");
+                     }
+                 }else{
+                     JOptionPane.showMessageDialog(null,"La probabilidad debe ser mayor a 0");   
+                 }
                  break;
          case 10: b1 = Float.parseFloat(unoa.getText());
                   b2 = Float.parseFloat(dosa.getText());
-                  res1 = (b1*b2);
-                  resultado.setText(Float.toString(res1));
-                  JOptionPane.showMessageDialog(null, res1);
+                  if(b1>0&&b2>0){
+                      if(b1<1&&b2<1){
+                       res1 = (b1*b2);
+                  resultado.setText(Float.toString(res1));  
+                      }else{
+                          JOptionPane.showMessageDialog(null,"La probabilidad debe ser menor a 1");
+                      }
+                  }else{
+                      JOptionPane.showMessageDialog(null, "La probabilidad debe ser mayor a 0");
+                  }
+                      
      }
         
     }
